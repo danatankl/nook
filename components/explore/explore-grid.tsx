@@ -34,7 +34,7 @@ export function ExploreGrid() {
         <label className="search-field">
           <SearchIcon />
           <span className="sr-only">Search Nooks</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search spaces, creators, places..." type="search" />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search bedroom ideas..." type="search" />
         </label>
         <div className="filter-scroll" aria-label="Filter by category">
           {exploreCategories.map((category) => (
@@ -45,7 +45,7 @@ export function ExploreGrid() {
         </div>
       </div>
 
-      <div className="feed-summary"><span>{visibleNooks.length} spaces</span><span>Curated for slow browsing</span></div>
+      <div className="feed-summary"><span>{visibleNooks.length} bedroom nooks</span><span>Curated for slow browsing</span></div>
 
       {visibleNooks.length ? (
         <div className="masonry-grid">
@@ -72,4 +72,3 @@ export function ExploreGrid() {
     </section>
   );
 }
-
