@@ -1,13 +1,14 @@
+import Link from "next/link";
+
 export function SiteHeader() {
   return (
     <header className="site-header page-shell">
-      <a className="wordmark" href="#top" aria-label="Nook home">nook</a>
+      <Link className="wordmark" href="/" aria-label="Nook home">nook</Link>
       <nav aria-label="Main navigation">
-        <a href="#featured">Explore</a>
-        <a href="#how-it-works">About</a>
+        <Link href="/explore">Explore</Link>
+        <Link href="/#how-it-works">About</Link>
       </nav>
       <a className="sign-in" href="#sign-in">Sign in</a>
     </header>
   );
 }
-
