@@ -125,8 +125,8 @@ button { color: inherit; font: inherit; }
 .filter-chip:hover { border-color: #aaa398; transform: translateY(-1px); }
 .filter-chip.active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
 .feed-summary { margin-bottom: 25px; display: flex; justify-content: space-between; color: var(--muted); font-size: .63rem; letter-spacing: .08em; text-transform: uppercase; }
-.masonry-grid { columns: 4 260px; column-gap: 18px; }
-.explore-card { width: 100%; margin: 0 0 38px; display: inline-block; break-inside: avoid; }
+.masonry-grid { columns: 3 320px; column-gap: 24px; }
+.explore-card { width: 100%; margin: 0 0 58px; display: inline-block; break-inside: avoid; }
 .explore-image { position: relative; overflow: hidden; border-radius: 17px; background: var(--cream); isolation: isolate; }
 .explore-image img { object-fit: cover; transition: transform .7s cubic-bezier(.22,.61,.36,1), filter .5s ease; }
 .explore-card:hover .explore-image img { transform: scale(1.035); filter: saturate(.82); }
@@ -137,10 +137,14 @@ button { color: inherit; font: inherit; }
 .floating-save:hover, .floating-save.saved { background: var(--ink); color: var(--paper); }
 .floating-save svg { width: 16px; }
 .floating-save.saved svg { fill: currentColor; }
-.explore-card-copy { padding: 14px 3px 0; display: flex; justify-content: space-between; gap: 15px; align-items: flex-start; }
-.explore-card-copy h2 { margin: 0 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 400; letter-spacing: -.02em; }
-.explore-card-copy p { margin: 0; color: var(--muted); font-size: .66rem; line-height: 1.5; }
-.explore-card-copy > span { flex: none; padding-top: 3px; color: var(--muted); font-size: .59rem; }
+.explore-card-copy { padding: 18px 4px 0; }
+.explore-card-copy h2 { margin: 0 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.35rem, 1.8vw, 1.75rem); font-weight: 400; letter-spacing: -.025em; }
+.nook-description { margin: 0; color: #625e56; font-family: Georgia, "Times New Roman", serif; font-size: .88rem; line-height: 1.6; }
+.collectable-details { margin-top: 18px; padding-top: 14px; display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; border-top: 1px solid var(--line); }
+.detail-label { padding-top: 3px; color: var(--clay); font-size: .57rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.collectable-details ul { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+.collectable-details li { padding: 6px 9px; border-radius: 100px; background: var(--cream); color: #625e56; font-size: .6rem; white-space: nowrap; }
+.nook-meta { margin-top: 16px; display: flex; justify-content: space-between; color: var(--muted); font-size: .61rem; }
 .empty-state { min-height: 420px; display: grid; place-content: center; justify-items: center; text-align: center; }
 .empty-state h2 { margin: 12px 0 25px; font-family: Georgia, "Times New Roman", serif; font-size: 2.6rem; font-weight: 400; }
 .empty-state button { padding-bottom: 5px; border: 0; border-bottom: 1px solid var(--ink); background: transparent; font-size: .75rem; cursor: pointer; }
@@ -182,15 +186,13 @@ button { color: inherit; font: inherit; }
   .explore-intro .eyebrow { margin-bottom: 0; }
   .explore-intro h1 { font-size: clamp(3.6rem, 17vw, 5.2rem); }
   .explore-tools { margin-inline: -16px; padding-inline: 16px; }
-  .masonry-grid { columns: 2 145px; column-gap: 12px; }
-  .explore-card { margin-bottom: 30px; }
+  .masonry-grid { columns: 1; }
+  .explore-card { margin-bottom: 52px; }
   .explore-image { border-radius: 13px; }
   .floating-save { min-width: 39px; padding: 0; justify-content: center; opacity: 1; transform: none; }
   .floating-save span { display: none; }
   .card-category { left: 9px; bottom: 9px; padding: 7px 9px; }
-  .explore-card-copy { display: block; }
-  .explore-card-copy h2 { font-size: 1rem; }
-  .explore-card-copy > span { display: block; padding-top: 6px; }
+  .explore-card-copy h2 { font-size: 1.45rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

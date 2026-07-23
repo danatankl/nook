@@ -14,7 +14,8 @@ export function ExploreGrid() {
     const search = query.trim().toLowerCase();
     return exploreNooks.filter((nook) => {
       const matchesCategory = activeCategory === "All" || nook.category === activeCategory;
-      const matchesSearch = !search || [nook.title, nook.category, nook.creator, nook.location].some((value) => value.toLowerCase().includes(search));
+      const searchableContent = [nook.title, nook.category, nook.description, nook.creator, ...nook.details, ...nook.tags];
+      const matchesSearch = !search || searchableContent.some((value) => value.toLowerCase().includes(search));
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, query]);
@@ -34,7 +35,7 @@ export function ExploreGrid() {
         <label className="search-field">
           <SearchIcon />
           <span className="sr-only">Search Nooks</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search bedroom ideas..." type="search" />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder='Try “small desk” or “warm light”' type="search" />
         </label>
         <div className="filter-scroll" aria-label="Filter by category">
           {exploreCategories.map((category) => (
@@ -45,14 +46,14 @@ export function ExploreGrid() {
         </div>
       </div>
 
-      <div className="feed-summary"><span>{visibleNooks.length} bedroom nooks</span><span>Curated for slow browsing</span></div>
+      <div className="feed-summary"><span>{visibleNooks.length} collectable Nooks</span><span>Small arrangements · lasting ideas</span></div>
 
       {visibleNooks.length ? (
         <div className="masonry-grid">
           {visibleNooks.map((nook) => (
             <article className="explore-card" key={nook.id}>
               <div className="explore-image" style={{ aspectRatio: `${nook.width} / ${nook.height}` }}>
-                <Image src={`https://picsum.photos/seed/${nook.imageSeed}/${nook.width}/${nook.height}`} alt={`${nook.title}, a ${nook.category.toLowerCase()} space by ${nook.creator}`} fill sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 25vw" />
+                <Image src={nook.image} alt={`Temporary image placeholder for ${nook.title}`} fill sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" />
                 <div className="image-wash" />
                 <span className="card-category">{nook.category}</span>
                 <button className={saved.has(nook.id) ? "floating-save saved" : "floating-save"} onClick={() => toggleSaved(nook.id)} type="button" aria-label={`${saved.has(nook.id) ? "Remove" : "Save"} ${nook.title}`} aria-pressed={saved.has(nook.id)}>
@@ -60,8 +61,13 @@ export function ExploreGrid() {
                 </button>
               </div>
               <div className="explore-card-copy">
-                <div><h2>{nook.title}</h2><p>by {nook.creator} · {nook.location}</p></div>
-                <span>{nook.saves} saves</span>
+                <h2>{nook.title}</h2>
+                <p className="nook-description">{nook.description}</p>
+                <div className="collectable-details" aria-label="Collectable details">
+                  <span className="detail-label">Collect</span>
+                  <ul>{nook.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+                </div>
+                <div className="nook-meta"><span>by {nook.creator}</span><span>{nook.saves} saves</span></div>
               </div>
             </article>
           ))}

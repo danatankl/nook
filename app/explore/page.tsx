@@ -4,8 +4,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: "Explore Bedroom Nooks — Nook",
-  description: "Browse thoughtful corners, desk setups, and details that make a bedroom feel like your own.",
+  title: "Explore Nooks — Nook",
+  description: "Discover small, recognizable arrangements you can collect and make your own.",
 };
 
 export default function ExplorePage() {
@@ -13,9 +13,9 @@ export default function ExplorePage() {
     <main>
       <SiteHeader />
       <header className="explore-intro page-shell">
-        <p className="eyebrow">Small spaces, one bedroom</p>
-        <h1>Make room for<br />what feels like <em>you.</em></h1>
-        <p className="explore-lede">Explore the corners that shape a bedroom—from a desk that helps you focus to the art you wake up beside.</p>
+        <p className="eyebrow">Small arrangements, lasting ideas</p>
+        <h1>Find a corner<br />worth <em>collecting.</em></h1>
+        <p className="explore-lede">A Nook is one recognizable arrangement you can save, adapt, and make your own—not an entire room.</p>
       </header>
       <ExploreGrid />
       <SiteFooter />
